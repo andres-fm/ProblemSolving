@@ -3,7 +3,7 @@
 # iterable = the iterable from which the combinations will be taken
 # k = the number of elements each combination will have
 def comb(iterable, k) :
-	if k < 0 :
+	if k < 0 or k > len(iterable):
 		raise ValueError
 	if k == 1 or k == 0 :
 		return [[i] for i in iterable] if k == 1 else []
