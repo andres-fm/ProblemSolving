@@ -1,0 +1,22 @@
+import Data.List
+
+pascal :: Int -> [[Int]]
+pascal r = [[value a b | b <- [0..a]] | a <- [0..r-1]] 
+
+value :: Int -> Int -> Int
+value r c = factorial r `div` (factorial c *factorial (r-c))
+
+factorial :: Int -> Int
+factorial 0 = 1
+factorial n = n * factorial (n-1)
+
+toString :: [[Int]] -> String
+toString [] = ""
+toString (x:xs) = (intercalate " " (map show x)) ++ "\n" ++ (toString xs)
+
+main = do
+        r <- getLine
+        putStr (toString (pascal (read r :: Int)))
+        
+        
+      
